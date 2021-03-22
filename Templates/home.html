@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Log in</h1>
+  <p>
+    {% if instrument %}
+        Het instrument van jouw keuze is {{ instrument }}.
+        <br>De keuze kan gewijzigd worden in onderstaand formulier:
+    {% else %}
+        Geef de naam van een instrument op in dit formulier:
+    {% endif %}
+    </p>
+
+{% endblock %}
