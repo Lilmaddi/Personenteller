@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, session, redirect, url_for, session
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -11,8 +12,13 @@ from wtforms import (StringField,
 app = Flask(__name__)
 Bootstrap(app)
 
+# Geheime sleutel voor formulieren
 app.config['SECRET_KEY'] = 'mijngeheimesleutel'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Macbook/OneDrive/Documenten/School/ICT/P3/IOT/code/Personenteller/env/lib/python3.8/site-packages/sqlalchemy/dialects/sqlite/'
+
+# DB koppeling
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.path.join(basedir,'datasqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class InfoForm(FlaskForm):
