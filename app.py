@@ -22,13 +22,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class InfoForm(FlaskForm):
-
      username = StringField('E-mailadres', validators=[InputRequired()])
      password = PasswordField('Wachtwoord', validators=[InputRequired(),Length(min=8,max=80)])
      usercheck = BooleanField('Ingelogd blijven')
+     firstname = StringField('Voornaam', validators=[InputRequired()])
+     lastname = StringField('Achternaam', validators=[InputRequired()])
+     email = StringField('Email Address', validators=[InputRequired(),Email(),Length(min=6, max=35)])
+     password1 = PasswordField('Wachtwoord', validators=[InputRequired()]) # EqualTo('Bevestigen', message='Bovenstaande twee wachtwoorden moeten aan elkaar gelijk zijn.')]
+     confirm = PasswordField('Herhaal wachtwoord')
      submit = SubmitField('submit')
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     form = InfoForm()
 
@@ -37,9 +41,18 @@ def login():
 
     return render_template("login.html",form=form) 
 
-@app.route("/home/")
+@app.route("/")
 def home():
-    return render_template("home.html")  
+    return render_template("home.html") 
+
+@app.route("/registreren", methods=['GET', 'POST'])
+def registreren():
+    form = InfoForm()
+
+    # if form.validate_on_submit():
+    #     return render_template("home.html",form=form)
+
+    return render_template("registreren.html",form=form)  
 
 if __name__ == "__main__":
     app.run(debug=True)
