@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body %}
+<br>
+<br>
+<div class="container">
+  <div id="demo" class="carousel slide" data-ride="carousel" data-interval="4000">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
+    </ul>
+
+<div class="carousel-inner">
+  <div class="carousel-item active">
+      <img src="{{url_for('static',filename='Bungalowpark1.jpg')}}" class="d-block w-100" alt="Bungalow1" width="auto" height="625px" max-height="625px">
+      <div class="carousel-caption">
+          <h3>Bungalows aan het water</h3>
+          <p>Waterplezier voor het hele gezin</p>
+      </div>
+  </div>
+  
+
+  <div class="carousel-item">
+      <img src="{{url_for('static',filename='Bungalowpark3.jpg')}}" class="dblock w-100" alt="Manarola" width="auto" height="625px" max-height="625px">
+      <div class="carousel-caption">
+          <h3>Familiebungalow</h3>
+          <p>Kindvriendelijke bungalows</p>
+      </div>
+  </div>
+
+  <div class="carousel-item">
+      <img src="{{url_for('static',filename='Bungalowpark4.jpg')}}" class="dblock w-100" alt="Riomaggiore" width="auto" height="625px" max-height="625px">
+      <div class="carousel-caption">
+          <h3>Zwembad</h3>
+          <p>Ons subtropisch zwembad</p>
+      </div>
+  </div>
+
+  <div class="carousel-item">
+      <img src="{{url_for('static',filename='Bungalowpark5.jpg')}}" class="dblock w-100" alt="Vernazza" width="auto" height="625px" max-height="625px">
+      <div class="carousel-caption">
+          <h3>Ons bungalowpark</h3>
+          <p>Een kijkje in de omgeving</p>
+      </div>
+  </div>
+</div>
+</div>
+
+</div>
+<br>
+<br>
+{% endblock %}

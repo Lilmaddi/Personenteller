@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <h1 class="display-4">Alle medewerkers van het bungalowpark</h1>
+    </div>
+    <hr class="my-4">
+    <div class="row">
+      <ul>
+        {% for medewerkers in Medewerker %}
+          <li>{{medewerkers.naam}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="jumbotron">     
+    <div class="row">
+      <h2 class="display-6">Voeg een medewerker toe</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <form method="POST">
+          
+          {{ form.hidden_tag() }}
+          {{ form.naam.label }} {{ form.naam() }}
+        <br>
+        <button type="submit" class="btn btn-primary" name="button">Voeg toe</button>
+      </div>
+    </form>
+      </div>
+      <br>
+      <hr class="my-4">
+
+    <br>
+      <div class="row">
+        <h2 class="display-6">Verwijder een medewerker</h4>
+      </div>
+    <div class="container">
+      <div class="row">
+      <form method="POST">
+        {{ form2.hidden_tag() }}
+        {{ form2.id.label }} {{form2.id() }}
+        <br>
+        <button type="submit" class="btn btn-primary" name="button">Verwijderen</button>
+      </form>
+    </div>
+    </div>
+  </div>
+    
+
+{% endblock %}

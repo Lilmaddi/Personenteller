@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block body %}
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Inloggen</h1>
+        <p class="lead">Vul uw e-mailadres en wachtwoord in!</p>
+      </div>
+    </div>
+
+    <div class="container" >
+    <form class="form-group" action="login" method="POST" role='form'> 
+      {{ form.hidden_tag() }}
+      {{ wtf.form_field(form.email) }}
+      {{ wtf.form_field(form.wachtwoord) }}
+      {{ wtf.form_field(form.usercheck) }}
+      <button type="submit" class="btn btn-default" name="button">Inloggen</button>
+    </form>
+    <hr>
+    <p>Nog geen account? <a href="{{ url_for('registreren.registreren') }}">Registreer hier</a></p>
+    </div>
+    
+
+{% endblock %}
