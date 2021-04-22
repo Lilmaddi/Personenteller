@@ -7,7 +7,7 @@ from wtforms import (IntegerField, StringField, SelectField,
                     SubmitField)
 
 class RegistrationForm(FlaskForm):
-     voornaam = StringField('Voornaam', validators=[InputRequired()])
+     voornaam = StringField('voornaam',validators=[InputRequired()])
      achternaam = StringField('Achternaam', validators=[InputRequired()])
      email = StringField('Email Address', validators=[InputRequired(),Email()])
      wachtwoord = PasswordField('Wachtwoord', validators=[InputRequired()]) # EqualTo('Bevestigen', message='Bovenstaande twee wachtwoorden moeten aan elkaar gelijk zijn.')]

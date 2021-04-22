@@ -6,7 +6,6 @@ from flask_login import UserMixin, login_user, login_required, logout_user
 def load_user(klant_id):
     return Klant.query.get(klant_id)
 
-
 class Klant(db.Model, UserMixin):
 
     __tablename__ = 'klanten'
