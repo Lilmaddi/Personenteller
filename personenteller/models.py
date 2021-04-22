@@ -50,33 +50,5 @@ class Klant(db.Model, UserMixin):
     def check_password(self, wachtwoord):
         return check_password_hash(self.wachtwoord_hash, wachtwoord)
 
-class Medewerker(db.Model):
-
-    __tablename__ = 'medewerker'
-
-    id = db.Column(db.Integer,primary_key = True)
-    naam = db.Column(db.Text)
-
-    def __init__(self,naam):
-        self.naam = naam
-
-class Reservering(db.Model, UserMixin):
-
-    __tablename__ = 'reserveringen'
-
-    id = db.Column(db.Integer,primary_key = True)
-    klantid = db.Column(db.Integer,db.ForeignKey('klanten.id')) 
-    typebungalow = db.Column(db.Integer,db.ForeignKey('accomodatie.id'))
-    weeknummer = db.Column(db.Text)
-
-    def __init__(self,klantid,typebungalow,weeknummer):
-        self.klantid = klantid
-        self.typebungalow = typebungalow
-        self.weeknummer = weeknummer
-    
-    def __repr__(self):
-        return f"{self.id} | U heeft een reservering voor {self.typebungalow} personen in weeknummer {self.weeknummer}."
-
-db.create_all()
 
 
