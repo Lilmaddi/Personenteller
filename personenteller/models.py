@@ -26,5 +26,16 @@ class Klant(db.Model, UserMixin):
     def check_password(self, wachtwoord):
         return check_password_hash(self.wachtwoord_hash, wachtwoord)
 
+class Medewerker(db.Model):
+
+    __tablename__ = 'medewerker'
+
+    id = db.Column(db.Integer,primary_key = True)
+    naam = db.Column(db.Text)
+
+    def __init__(self,naam):
+        self.naam = naam
+
+db.create_all()
 
 
